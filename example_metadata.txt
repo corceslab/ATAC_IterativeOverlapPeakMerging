@@ -1,0 +1,10 @@
+Sample	Group
+CellTypeA_Rep1	CellTypeA
+CellTypeA_Rep2	CellTypeA
+CellTypeA_Rep3	CellTypeA
+CellTypeB_Rep1	CellTypeB
+CellTypeB_Rep2	CellTypeB
+CellTypeB_Rep3	CellTypeB
+CellTypeC_Rep1	CellTypeC
+CellTypeC_Rep2	CellTypeC
+CellTypeC_Rep3	CellTypeC
