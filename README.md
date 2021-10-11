@@ -49,15 +49,14 @@ biocLite("BSgenome.Hsapiens.UCSC.hg38")
 ```
 
 ## Input Files and Parameters
-#### Input Files and expectations
 ##### MACS2 Summit Files
 This script used the "summits" files that are provided by MACS2 when the `--call-summits` parameter is used. For ATAC-seq, BAM files used as input to MACS to should be adjusted for the Tn5 offset as described in our [Nature Protocols]() publication. We recommend running MACS2 with the following parameters:
 `--shift -75 --extsize 150 --nomodel --call-summits --nolambda --keep-dup all -p 0.01`
 All input summit files are expected to be located in the same directory.
 
 ##### Metadata file
-A 2-column tab-delimited text file containing the metadata for the project as _sample_name_ __tab__ _group_ 
-where sample_name is expected to be the prefix of a summit file in the format <prefix><suffix> and
+A 2-column tab-delimited text file containing the metadata for the project as "_sample_name_ __tab__ _group_" 
+where `sample_name` is expected to be the prefix of a summit file in the format "_prefixsuffix_" and
 group is an identifier that can be shared among multiple sample_names and will be used to create group-specific peak sets. See below for a description of `suffix`.
 Duplicate sample_name entries are not allowed.
 The first line of the metadata file is expected to have the column names. The second column should be "Group". This is case sensitive. The first column name does not matter.

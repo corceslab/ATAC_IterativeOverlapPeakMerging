@@ -1,3 +1,5 @@
+#Originally written by Jeff Granja and Ryan Corces
+#From: Corces & Granja et. al. Science 2018
 ################################################################################################################
 #Load Required Packages
 #--------------
