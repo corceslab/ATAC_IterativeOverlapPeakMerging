@@ -77,3 +77,40 @@ A blacklist is a comprehensive set of regions in the genome that have anomalous,
 8. `rule` - This is a character string denoting the selection rule for peak filtering. For example, "2" means at least 2 samples
     must have a peak overlapping the given summit location. Any overlap (i.e. 1 bp) is sufficient. Similarly, "(n+1)/2" means that a majority of samples must have a peak overlapping the given summit location. This rule must be in quotes. Default value is 2. 
 9. `extend` - An integer of how many base pairs on either side of the summit to extend the peak. For example, if set to 250, then you will create 501-bp peaks containing the summit position and 250 bp on either side of the summit. Default value is 250.
+
+## Example Usage
+To assist with usage, we provide an example metadata file that accompanies the below description.
+
+Lets say we have 3 cell types, named `CellTypeA`, `CellTypeB`, and `CellTypeC`. Each cell type has three replicates named `Rep1`, `Rep2`, and `Rep3`. This would give us 9 summit files from MACS2. We will pretend these files are located in `/macs2/peakCalls/` like so:
+
+```
+CellTypeA_Rep1_summits.bed
+CellTypeA_Rep2_summits.bed
+CellTypeA_Rep3_summits.bed
+
+CellTypeB_Rep1_summits.bed
+CellTypeB_Rep2_summits.bed
+CellTypeB_Rep3_summits.bed
+
+CellTypeC_Rep1_summits.bed
+CellTypeC_Rep2_summits.bed
+CellTypeC_Rep3_summits.bed
+```
+
+In this example, the `suffix` of our files is `_summits.bed` because each of these files ends with `_summits.bed`. Thus, our prefixes are everything before `_summits.bed`. For example "CellTypeA_Rep1".
+
+From this, we would make our metadata file. Because we have three cell types, we will create three groups. This metadata file is tab-delimited and has two columns. The first line of the second column must be "Group" (case sensitive). The first column contains the sample prefixes (i.e. the file names minus the suffix).
+```
+Sample	Group
+CellTypeA_Rep1	CellTypeA
+CellTypeA_Rep2	CellTypeA
+CellTypeA_Rep3	CellTypeA
+CellTypeB_Rep1	CellTypeB
+CellTypeB_Rep2	CellTypeB
+CellTypeB_Rep3	CellTypeB
+CellTypeC_Rep1	CellTypeC
+CellTypeC_Rep2	CellTypeC
+CellTypeC_Rep3	CellTypeC
+```
+
+If we set `rule = 2` in this example, then two of the three replicates will be required to have a peak call overlapping a given summit. If we set `rule = "(n+1)/2"`, then the outcome will be exactly the same because the majority here is 2. However, you can imagine how these different values for `rule` would have very different outcomes in experiments with more replicates. 
