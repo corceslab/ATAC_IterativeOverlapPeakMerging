@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/416004561.svg)](https://zenodo.org/badge/latestdoi/416004561)
+
 # ATAC_IterativeOverlapPeakMerging
 
 This repository is home to a single R script used for performing the iterative overlap peak merging procedure. This was originally described in [Corces & Granja et. al. Science 2018](https://pubmed.ncbi.nlm.nih.gov/30361341/) and details can be found in the Supplementary Materials in the "Materials and Methods" section under the heading "Peak Calling".
