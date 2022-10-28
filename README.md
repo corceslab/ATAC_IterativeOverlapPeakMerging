@@ -39,7 +39,7 @@ This script requires the following R packages to be installed:
 5. Biostrings
 6. SummarizedExperiment
 7. GenomeInfoDb
-8. GenomicRanges
+8. GenomicRanges >1.44.0
 9. readr
 10. edgeR
 11. BSgenome
