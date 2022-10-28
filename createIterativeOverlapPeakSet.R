@@ -100,7 +100,7 @@ extendedPeakSet <- function(df, BSgenome = NULL, blacklist = NULL, extend = 250,
     df_group = df[which(df$groups==groups[i]),]
 
     #--- 1. read in summit files
-    grList <- GenomicRanges::GenomicRangesList(lapply(paste0(df_group$summits),readSummits))
+    grList <- GenomicRanges::GRangesList(lapply(paste0(df_group$summits),readSummits))
     
     #--- 2. resize
     #--- 3. within chromsizes
@@ -118,7 +118,7 @@ extendedPeakSet <- function(df, BSgenome = NULL, blacklist = NULL, extend = 250,
     })
     
     #--- 7. non-overlapping overlaps determined score-per-million
-    grNonOverlapping <- GenomicRanges::GenomicRangesList(grList) %>%
+    grNonOverlapping <- GenomicRanges::GRangesList(grList) %>%
       unlist %>% 
       convergeClusterGRanges(., by = "score", decreasing = T) %>%
       sortSeqlevels %>% 
